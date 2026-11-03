@@ -34,6 +34,11 @@ a{color:#B8326F}
 .see{font-size:14px;font-weight:400;color:#999999;text-decoration:none}
 .hs,.screen-scroll{scrollbar-width:none}
 .screen-scroll::-webkit-scrollbar{display:none}
+.page{timeline-scope:--page}
+.screen-scroll{scroll-timeline:--page block}
+.sticky-head{visibility:hidden;opacity:0}
+@supports (animation-timeline: scroll()){.sticky-head{animation:headIn linear both;animation-timeline:--page;animation-range:0px 24px}}
+@keyframes headIn{from{visibility:hidden;opacity:0;transform:translateY(-8px)}to{visibility:visible;opacity:1;transform:none}}
 .hs::-webkit-scrollbar{display:none}
 .h2{margin:0;font-size:20px;line-height:30px;font-weight:700;color:#1E1418}
 
@@ -61,11 +66,13 @@ html.app .device-screen{width:100vw;height:100vh;height:100dvh;border-radius:0}
 html.app .device-screen>div{width:100%!important;height:100%!important}
 html.app .ios-status{display:none!important}
 html.app nav{bottom:calc(16px + env(safe-area-inset-bottom))!important}
+html.js-head .sticky-head{animation:none!important;visibility:hidden;opacity:0;transform:translateY(-8px);transition:opacity .3s ease,transform .3s ease,visibility 0s linear .3s}
+html.js-head.scrolled .sticky-head{visibility:visible;opacity:1;transform:none;transition:opacity .3s ease,transform .3s ease,visibility 0s}
 </style>
 </head>
 <body>
 <div class="device"><div class="device-screen">
-<div lang="ar" dir="rtl" style="width: 393px; height: 852px; position: relative; overflow: hidden; background: #FFFFFF; color: #1E1418; font-family: 'Thmanyah Sans', system-ui, -apple-system, sans-serif; box-sizing: border-box;">
+<div lang="ar" dir="rtl" class="page" style="width: 393px; height: 852px; position: relative; overflow: hidden; background: #FFFFFF; color: #1E1418; font-family: 'Thmanyah Sans', system-ui, -apple-system, sans-serif; box-sizing: border-box;">
 <!-- iPhone screen (393x852): the page scrolls inside it while the nav stays put -->
 <div class="screen-scroll" style="height: 100%; overflow-y: auto; overflow-x: hidden;">
 
@@ -144,7 +151,7 @@ html.app nav{bottom:calc(16px + env(safe-area-inset-bottom))!important}
 <img src="assets/jc-voucher.png" alt="" style="position: absolute; left: -6px; top: 13px; width: 96px; height: 76px; object-fit: contain; display: block;">
 </span>
 </span>
-<span style="font-size: 13px; line-height: 18px; font-weight: 600; text-align: center;">قسيمة خصم</span>
+<span style="font-size: 13px; line-height: 18px; font-weight: 500; text-align: center;">قسيمة خصم</span>
 </a>
 <a href="#" class="cat" style="flex: 0 0 84px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-decoration: none; color: #1E1418;">
 <span style="position: relative; display: block; width: 84px; height: 100px;">
@@ -153,7 +160,7 @@ html.app nav{bottom:calc(16px + env(safe-area-inset-bottom))!important}
 <img src="assets/jc-bouquets.png" alt="" style="position: absolute; left: -6px; top: 4px; width: 96px; height: 96px; object-fit: contain; display: block;">
 </span>
 </span>
-<span style="font-size: 13px; line-height: 18px; font-weight: 600; text-align: center;">ورود</span>
+<span style="font-size: 13px; line-height: 18px; font-weight: 500; text-align: center;">ورود</span>
 </a>
 <a href="#" class="cat" style="flex: 0 0 84px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-decoration: none; color: #1E1418;">
 <span style="position: relative; display: block; width: 84px; height: 100px;">
@@ -162,7 +169,7 @@ html.app nav{bottom:calc(16px + env(safe-area-inset-bottom))!important}
 <img src="assets/jc-women.png" alt="" style="position: absolute; left: -6px; top: 4px; width: 96px; height: 96px; object-fit: contain; display: block;">
 </span>
 </span>
-<span style="font-size: 13px; line-height: 18px; font-weight: 600; text-align: center;">هدايا نسائية</span>
+<span style="font-size: 13px; line-height: 18px; font-weight: 500; text-align: center;">هدايا نسائية</span>
 </a>
 <a href="#" class="cat" style="flex: 0 0 84px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-decoration: none; color: #1E1418;">
 <span style="position: relative; display: block; width: 84px; height: 100px;">
@@ -171,7 +178,7 @@ html.app nav{bottom:calc(16px + env(safe-area-inset-bottom))!important}
 <img src="assets/jc-cakes.png" alt="" style="position: absolute; left: -6px; top: 4px; width: 96px; height: 96px; object-fit: contain; display: block;">
 </span>
 </span>
-<span style="font-size: 13px; line-height: 18px; font-weight: 600; text-align: center;">الكيكات</span>
+<span style="font-size: 13px; line-height: 18px; font-weight: 500; text-align: center;">الكيكات</span>
 </a>
 <a href="#" class="cat" style="flex: 0 0 84px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-decoration: none; color: #1E1418;">
 <span style="position: relative; display: block; width: 84px; height: 100px;">
@@ -180,7 +187,7 @@ html.app nav{bottom:calc(16px + env(safe-area-inset-bottom))!important}
 <img src="assets/jc-perfumes.png" alt="" style="position: absolute; left: -6px; top: 4px; width: 96px; height: 96px; object-fit: contain; display: block;">
 </span>
 </span>
-<span style="font-size: 13px; line-height: 18px; font-weight: 600; text-align: center;">عطور</span>
+<span style="font-size: 13px; line-height: 18px; font-weight: 500; text-align: center;">عطور</span>
 </a>
 <a href="#" class="cat" style="flex: 0 0 84px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-decoration: none; color: #1E1418;">
 <span style="position: relative; display: block; width: 84px; height: 100px;">
@@ -189,7 +196,7 @@ html.app nav{bottom:calc(16px + env(safe-area-inset-bottom))!important}
 <img src="assets/jc-premium.png" alt="" style="position: absolute; left: -6px; top: 4px; width: 96px; height: 96px; object-fit: contain; display: block;">
 </span>
 </span>
-<span style="font-size: 13px; line-height: 18px; font-weight: 600; text-align: center;">منتجات فاخرة</span>
+<span style="font-size: 13px; line-height: 18px; font-weight: 500; text-align: center;">منتجات فاخرة</span>
 </a>
 <a href="#" class="cat" style="flex: 0 0 84px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-decoration: none; color: #1E1418;">
 <span style="position: relative; display: block; width: 84px; height: 100px;">
@@ -198,7 +205,7 @@ html.app nav{bottom:calc(16px + env(safe-area-inset-bottom))!important}
 <img src="assets/jc-roses.png" alt="" style="position: absolute; left: -6px; top: 4px; width: 96px; height: 96px; object-fit: contain; display: block;">
 </span>
 </span>
-<span style="font-size: 13px; line-height: 18px; font-weight: 600; text-align: center;">الورود</span>
+<span style="font-size: 13px; line-height: 18px; font-weight: 500; text-align: center;">الورود</span>
 </a>
 <a href="#" class="cat" style="flex: 0 0 84px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-decoration: none; color: #1E1418;">
 <span style="position: relative; display: block; width: 84px; height: 100px;">
@@ -207,7 +214,7 @@ html.app nav{bottom:calc(16px + env(safe-area-inset-bottom))!important}
 <img src="assets/jc-kids.png" alt="" style="position: absolute; left: -6px; top: 4px; width: 96px; height: 96px; object-fit: contain; display: block;">
 </span>
 </span>
-<span style="font-size: 13px; line-height: 18px; font-weight: 600; text-align: center;">أطفال</span>
+<span style="font-size: 13px; line-height: 18px; font-weight: 500; text-align: center;">أطفال</span>
 </a>
 <a href="#" class="cat" style="flex: 0 0 84px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-decoration: none; color: #1E1418;">
 <span style="position: relative; display: block; width: 84px; height: 100px;">
@@ -216,7 +223,7 @@ html.app nav{bottom:calc(16px + env(safe-area-inset-bottom))!important}
 <img src="assets/jc-men.png" alt="" style="position: absolute; left: -6px; top: 4px; width: 96px; height: 96px; object-fit: contain; display: block;">
 </span>
 </span>
-<span style="font-size: 13px; line-height: 18px; font-weight: 600; text-align: center;">هدايا رجالية</span>
+<span style="font-size: 13px; line-height: 18px; font-weight: 500; text-align: center;">هدايا رجالية</span>
 </a>
 <a href="#" class="cat" style="flex: 0 0 84px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-decoration: none; color: #1E1418;">
 <span style="position: relative; display: block; width: 84px; height: 100px;">
@@ -225,7 +232,7 @@ html.app nav{bottom:calc(16px + env(safe-area-inset-bottom))!important}
 <img src="assets/jc-chocolate.png" alt="" style="position: absolute; left: -6px; top: 4px; width: 96px; height: 96px; object-fit: contain; display: block;">
 </span>
 </span>
-<span style="font-size: 13px; line-height: 18px; font-weight: 600; text-align: center;">شوكولاتة</span>
+<span style="font-size: 13px; line-height: 18px; font-weight: 500; text-align: center;">شوكولاتة</span>
 </a>
 <a href="#" class="cat" style="flex: 0 0 84px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-decoration: none; color: #1E1418;">
 <span style="position: relative; display: block; width: 84px; height: 100px;">
@@ -234,7 +241,7 @@ html.app nav{bottom:calc(16px + env(safe-area-inset-bottom))!important}
 <img src="assets/jc-candles.png" alt="" style="position: absolute; left: -6px; top: 4px; width: 96px; height: 96px; object-fit: contain; display: block;">
 </span>
 </span>
-<span style="font-size: 13px; line-height: 18px; font-weight: 600; text-align: center;">شموع ومعطرات</span>
+<span style="font-size: 13px; line-height: 18px; font-weight: 500; text-align: center;">شموع ومعطرات</span>
 </a>
 <a href="#" class="cat" style="flex: 0 0 84px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-decoration: none; color: #1E1418;">
 <span style="position: relative; display: block; width: 84px; height: 100px;">
@@ -243,7 +250,7 @@ html.app nav{bottom:calc(16px + env(safe-area-inset-bottom))!important}
 <img src="assets/jc-month.png" alt="" style="position: absolute; left: -6px; top: 4px; width: 96px; height: 96px; object-fit: contain; display: block;">
 </span>
 </span>
-<span style="font-size: 13px; line-height: 18px; font-weight: 600; text-align: center;">منتج الشهر</span>
+<span style="font-size: 13px; line-height: 18px; font-weight: 500; text-align: center;">منتج الشهر</span>
 </a>
 <a href="#" class="cat" style="flex: 0 0 84px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-decoration: none; color: #1E1418;">
 <span style="position: relative; display: block; width: 84px; height: 100px;">
@@ -252,7 +259,7 @@ html.app nav{bottom:calc(16px + env(safe-area-inset-bottom))!important}
 <img src="assets/jc-flowers-gifts.png" alt="" style="position: absolute; left: -6px; top: 4px; width: 96px; height: 96px; object-fit: contain; display: block;">
 </span>
 </span>
-<span style="font-size: 13px; line-height: 18px; font-weight: 600; text-align: center;">ورد وهدايا</span>
+<span style="font-size: 13px; line-height: 18px; font-weight: 500; text-align: center;">ورد وهدايا</span>
 </a>
 </div>
 </section>
@@ -311,6 +318,32 @@ html.app nav{bottom:calc(16px + env(safe-area-inset-bottom))!important}
 <span dir="ltr" style="margin-top: 2px; align-self: flex-start; display: flex; align-items: center; gap: 8px;">
 <span style="display: flex; align-items: center; gap: 4px; font-size: 20px; line-height: 28px; font-weight: 700; color: #111111;"><svg aria-hidden="true" width="14.3" height="16" viewBox="0 0 1124.14 1256.39" fill="currentColor"><path d="M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z"/><path d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z"/></svg>535</span>
 </span>
+</a>
+</div>
+</section>
+
+<!-- 5. Occasions -->
+<section aria-labelledby="occ-h" style="display: flex; flex-direction: column; gap: 16px;">
+<div style="display: flex; align-items: baseline; justify-content: space-between; padding: 0 20px;">
+<h2 id="occ-h" class="h2">المناسبات</h2>
+<a href="#" class="see">عرض الكل</a>
+</div>
+<div class="hs" style="display: flex; gap: 12px; overflow-x: auto; padding: 0 20px;">
+<a href="#" style="flex: 0 0 132px; height: 152px; position: relative; overflow: hidden; border-radius: 12px; background: #FAFAFA; text-decoration: none; color: #1E1418;">
+<span style="position: absolute; top: 12px; left: 8px; right: 8px; font-size: 15px; line-height: 22px; font-weight: 700; text-align: center;">عيد ميلاد</span>
+<img src="assets/jc-cakes.png" alt="" style="position: absolute; left: -4px; bottom: -22px; width: 140px; height: 140px; object-fit: contain; display: block;">
+</a>
+<a href="#" style="flex: 0 0 132px; height: 152px; position: relative; overflow: hidden; border-radius: 12px; background: #FAFAFA; text-decoration: none; color: #1E1418;">
+<span style="position: absolute; top: 12px; left: 8px; right: 8px; font-size: 15px; line-height: 22px; font-weight: 700; text-align: center;">زواج</span>
+<img src="assets/jc-premium.png" alt="" style="position: absolute; left: 8px; bottom: -18px; width: 116px; height: 116px; object-fit: contain; display: block;">
+</a>
+<a href="#" style="flex: 0 0 132px; height: 152px; position: relative; overflow: hidden; border-radius: 12px; background: #FAFAFA; text-decoration: none; color: #1E1418;">
+<span style="position: absolute; top: 12px; left: 8px; right: 8px; font-size: 15px; line-height: 22px; font-weight: 700; text-align: center;">مولود جديد</span>
+<img src="assets/jc-kids.png" alt="" style="position: absolute; left: -4px; bottom: -22px; width: 140px; height: 140px; object-fit: contain; display: block;">
+</a>
+<a href="#" style="flex: 0 0 132px; height: 152px; position: relative; overflow: hidden; border-radius: 12px; background: #FAFAFA; text-decoration: none; color: #1E1418;">
+<span style="position: absolute; top: 12px; left: 8px; right: 8px; font-size: 15px; line-height: 22px; font-weight: 700; text-align: center;">حب</span>
+<img src="assets/jc-roses.png" alt="" style="position: absolute; left: -4px; bottom: -22px; width: 140px; height: 140px; object-fit: contain; display: block;">
 </a>
 </div>
 </section>
@@ -380,32 +413,6 @@ html.app nav{bottom:calc(16px + env(safe-area-inset-bottom))!important}
 <span style="display: flex; align-items: center; gap: 3px; font-size: 14px; line-height: 20px; font-weight: 400; color: #999999; text-decoration: line-through;"><svg aria-hidden="true" width="9.8" height="11" viewBox="0 0 1124.14 1256.39" fill="currentColor"><path d="M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z"/><path d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z"/></svg>620</span>
 <span style="display: flex; align-items: center; gap: 4px; font-size: 20px; line-height: 28px; font-weight: 700; color: #111111;"><svg aria-hidden="true" width="14.3" height="16" viewBox="0 0 1124.14 1256.39" fill="currentColor"><path d="M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z"/><path d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z"/></svg>495</span>
 </span>
-</a>
-</div>
-</section>
-
-<!-- 5. Occasions -->
-<section aria-labelledby="occ-h" style="display: flex; flex-direction: column; gap: 16px;">
-<div style="display: flex; align-items: baseline; justify-content: space-between; padding: 0 20px;">
-<h2 id="occ-h" class="h2">المناسبات</h2>
-<a href="#" class="see">عرض الكل</a>
-</div>
-<div class="hs" style="display: flex; gap: 12px; overflow-x: auto; padding: 0 20px;">
-<a href="#" style="flex: 0 0 132px; height: 152px; position: relative; overflow: hidden; border-radius: 12px; background: #FAFAFA; text-decoration: none; color: #1E1418;">
-<span style="position: absolute; top: 12px; left: 8px; right: 8px; font-size: 15px; line-height: 22px; font-weight: 700; text-align: center;">عيد ميلاد</span>
-<img src="assets/jc-cakes.png" alt="" style="position: absolute; left: -4px; bottom: -22px; width: 140px; height: 140px; object-fit: contain; display: block;">
-</a>
-<a href="#" style="flex: 0 0 132px; height: 152px; position: relative; overflow: hidden; border-radius: 12px; background: #FAFAFA; text-decoration: none; color: #1E1418;">
-<span style="position: absolute; top: 12px; left: 8px; right: 8px; font-size: 15px; line-height: 22px; font-weight: 700; text-align: center;">زواج</span>
-<img src="assets/jc-premium.png" alt="" style="position: absolute; left: 8px; bottom: -18px; width: 116px; height: 116px; object-fit: contain; display: block;">
-</a>
-<a href="#" style="flex: 0 0 132px; height: 152px; position: relative; overflow: hidden; border-radius: 12px; background: #FAFAFA; text-decoration: none; color: #1E1418;">
-<span style="position: absolute; top: 12px; left: 8px; right: 8px; font-size: 15px; line-height: 22px; font-weight: 700; text-align: center;">مولود جديد</span>
-<img src="assets/jc-kids.png" alt="" style="position: absolute; left: -4px; bottom: -22px; width: 140px; height: 140px; object-fit: contain; display: block;">
-</a>
-<a href="#" style="flex: 0 0 132px; height: 152px; position: relative; overflow: hidden; border-radius: 12px; background: #FAFAFA; text-decoration: none; color: #1E1418;">
-<span style="position: absolute; top: 12px; left: 8px; right: 8px; font-size: 15px; line-height: 22px; font-weight: 700; text-align: center;">حب</span>
-<img src="assets/jc-roses.png" alt="" style="position: absolute; left: -4px; bottom: -22px; width: 140px; height: 140px; object-fit: contain; display: block;">
 </a>
 </div>
 </section>
@@ -481,6 +488,33 @@ html.app nav{bottom:calc(16px + env(safe-area-inset-bottom))!important}
 </main>
 </div>
 
+<!-- Header that slides in on white once the banner has scrolled away (copy of the hero's status bar + header) -->
+<div class="sticky-head" style="position: absolute; top: 0; left: 0; right: 0; z-index: 3; padding-bottom: 8px; background: #FFFFFF; box-shadow: 0 1px 0 #F2F2F2;">
+<div class="ios-status" aria-hidden="true" dir="ltr" style="position: relative; height: 54px; display: flex; align-items: center; padding-top: 4px; box-sizing: border-box; color: #1E1418;">
+<span style="flex: 1; display: flex; justify-content: center; padding-left: 8px;">
+<span style="font-family: -apple-system, 'SF Pro Text', 'SF Pro', system-ui, sans-serif; font-size: 17px; line-height: 22px; font-weight: 600; letter-spacing: -0.4px;">9:41</span>
+</span>
+<span style="flex: 0 0 125px;"></span>
+<span style="position: absolute; left: 50%; top: 11px; transform: translateX(-50%); width: 125px; height: 37px; border-radius: 999px; background: #000000;"></span>
+<span style="flex: 1; display: flex; justify-content: center; align-items: center; gap: 7px; padding-right: 8px;">
+<svg width="19" height="12" viewBox="0 0 19 12" fill="currentColor"><rect x="0" y="7.5" width="3.2" height="4.5" rx="0.9"/><rect x="4.8" y="5.2" width="3.2" height="6.8" rx="0.9"/><rect x="9.6" y="2.6" width="3.2" height="9.4" rx="0.9"/><rect x="14.4" y="0" width="3.2" height="12" rx="0.9"/></svg>
+<svg width="17" height="12.5" viewBox="0 0 17.2 12.2" fill="currentColor"><path d="M8.5713 2.46628C11.0584 2.46639 13.4504 3.38847 15.2529 5.04195C15.3887 5.1696 15.6056 5.16799 15.7393 5.03834L17.0368 3.77487C17.1045 3.70911 17.1422 3.62004 17.1417 3.52735C17.1411 3.43467 17.1023 3.34603 17.0338 3.28104C12.3028 -1.09368 4.83907 -1.09368 0.108056 3.28104C0.039524 3.34598 0.000639766 3.4346 7.82398e-06 3.52728C-0.000624118 3.61996 0.0370483 3.70906 0.104689 3.77487L1.40255 5.03834C1.53615 5.16819 1.75327 5.1698 1.88893 5.04195C3.69167 3.38836 6.08395 2.46628 8.5713 2.46628Z"/><path d="M8.5713 6.68255C9.93685 6.68247 11.2538 7.18922 12.2659 8.10439C12.4028 8.23428 12.6185 8.23146 12.7519 8.09802L14.0479 6.79339C14.1162 6.72495 14.1541 6.6321 14.1531 6.53564C14.1522 6.43917 14.1124 6.34711 14.0428 6.28004C10.9587 3.40009 6.18656 3.40009 3.10251 6.28004C3.03285 6.34711 2.99308 6.43922 2.99224 6.53572C2.9914 6.63221 3.02955 6.72504 3.09798 6.79339L4.39363 8.09802C4.52713 8.23146 4.74275 8.23428 4.87965 8.10439C5.89108 7.18983 7.20702 6.68314 8.5713 6.68255Z"/><path d="M11.1078 9.53817C11.1098 9.63487 11.0716 9.72807 11.0021 9.79574L8.76061 12.0559C8.69491 12.1223 8.6053 12.1597 8.51182 12.1597C8.41835 12.1597 8.32873 12.1223 8.26304 12.0559L6.02125 9.79574C5.95182 9.72802 5.91369 9.63479 5.91588 9.53809C5.91808 9.44139 5.96043 9.34997 6.03294 9.28541C7.46436 8.07487 9.55928 8.07487 10.9907 9.28541C11.0632 9.35002 11.1055 9.44148 11.1078 9.53817Z"/></svg>
+<svg width="27.3" height="13" viewBox="0 0 27.3 13" fill="none"><rect x="0.5" y="0.5" width="24" height="12" rx="3.8" stroke="currentColor" stroke-opacity="0.35"/><rect x="2" y="2" width="21" height="9" rx="2.5" fill="currentColor"/><path d="M26 4.5V8.5C26.8 8.16 27.3 7.37 27.3 6.5C27.3 5.63 26.8 4.84 26 4.5Z" fill="currentColor" fill-opacity="0.4"/></svg>
+</span>
+</div>
+<header style="position: relative; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; height: 52px; margin-top: 6px;">
+<button type="button" aria-label="التوصيل إلى الرياض، تغيير المدينة" style="display: flex; flex-direction: column; align-items: flex-start; padding: 0; border: 0; background: transparent; cursor: pointer; font-family: inherit; color: #1E1418; text-align: right;">
+<span style="display: flex; align-items: center; gap: 4px; font-size: 13px; line-height: 18px; font-weight: 400;">توصيل إلى</span>
+<span style="display: flex; align-items: center; gap: 4px; font-size: 18px; line-height: 26px; font-weight: 600;">الرياض
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"><path d="M19.92 8.95L13.4 15.47C12.63 16.24 11.37 16.24 10.6 15.47L4.08 8.95"/></svg>
+</span>
+</button>
+<a href="#" aria-label="جويا، الصفحة الرئيسية" style="display: flex; align-items: center; height: 36px;">
+<svg aria-hidden="true" width="67" height="36" viewBox="0 0 794 428" fill="#F56BAC"><path d="M577.536 188.211L504.897 305.562L453.993 228.206C450.136 221.713 445.431 215.408 439.974 209.291C434.516 203.268 428.212 198.186 421.061 194.234C413.91 190.187 405.818 188.211 396.88 188.211H270.232C203.992 188.211 150.359 241.852 150.359 308.103C150.359 374.355 203.992 427.995 270.232 427.995C336.473 427.995 390.105 374.355 390.105 308.103C390.105 256.344 357.361 212.302 311.444 195.457H359.902C366.958 195.928 373.357 198.186 379.19 202.139C385.024 206.091 390.481 210.985 395.751 216.631C400.926 222.372 405.724 228.583 410.147 235.359L473.753 330.595V427.995H514.777V324.101L598.33 188.211H577.63H577.536ZM349.175 308.103C349.175 370.308 313.891 420.749 270.326 420.749C226.762 420.749 191.477 370.308 191.477 308.103C191.477 245.899 226.762 195.457 270.326 195.457C313.891 195.457 349.175 245.899 349.175 308.103Z"/><path d="M771.649 407.574C765.721 401.646 760.358 392.8 755.559 381.036L675.017 188.211H661.279L556.273 427.995H573.962L603.789 359.768H702.021L710.677 381.036C716.229 394.964 722.909 405.316 730.719 411.903C738.529 418.491 746.62 422.82 754.901 424.89C763.181 426.96 770.802 427.995 777.859 427.995C780.494 427.995 783.316 427.807 786.327 427.431C789.338 427.054 791.785 426.678 793.76 426.207V417.926C784.822 416.985 777.483 413.503 771.555 407.668M610.752 344.24L653.752 245.616L694.87 344.24H610.752Z"/><path d="M78.8488 206.468V320.055C78.8488 374.543 43.7526 418.962 0 420.656V427.902C66.2406 427.902 119.873 374.261 119.873 308.009V188.117H97.1027C87.0348 188.117 78.8488 196.304 78.8488 206.374"/><path d="M101.055 0.0941091V0H97.7617C97.7617 51.1001 56.3614 92.5072 5.26953 92.5072V95.8009C56.2673 95.8009 97.6676 137.114 97.7617 188.12V188.214H101.055C101.055 137.114 142.455 95.7068 193.547 95.7068V92.413C142.549 92.413 101.149 51.1001 101.055 0.0941091Z"/></svg>
+</a>
+</header>
+</div>
+
 <!-- Floating nav (outside the scroller, so it stays at the bottom of the screen) -->
 <nav aria-label="القائمة الرئيسية" style="position: absolute; left: 16px; right: 16px; bottom: 24px; height: 68px; box-sizing: border-box; padding: 6px; border-radius: 999px; background: #FFFFFF; border: 1px solid #F2F2F2; box-shadow: 0 12px 32px rgba(184,50,111,0.12); display: flex; gap: 2px;">
 <a href="#" aria-current="page" style="flex: 1; border-radius: 999px; background: #FEF0F6; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #B8326F;">
@@ -511,6 +545,7 @@ html.app nav{bottom:calc(16px + env(safe-area-inset-bottom))!important}
 </div>
 </div></div>
 <script>function fit(){var d=document.querySelector(".device");if(innerWidth<=500||document.documentElement.classList.contains("app")){d.style.transform="";return}var s=Math.min(1,(innerHeight-48)/876,(innerWidth-48)/417);d.style.transform="scale("+s+")"}addEventListener("resize",fit);fit()</script>
+<script>(function(){var d=document.documentElement,s=document.querySelector(".screen-scroll");d.classList.add("js-head");s.addEventListener("scroll",function(){d.classList.toggle("scrolled",s.scrollTop>4)},{passive:true})})()</script>
 <script>if("serviceWorker" in navigator)addEventListener("load",function(){navigator.serviceWorker.register("sw.js")})</script>
 </body>
 </html>
