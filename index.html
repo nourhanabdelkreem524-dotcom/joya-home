@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>JOYA Home</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <style>
 @font-face{font-family:'Thmanyah Sans';src:url(assets/thmanyahsans-Regular.woff2) format('woff2');font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:'Thmanyah Sans';src:url(assets/thmanyahsans-Medium.woff2) format('woff2');font-weight:500;font-style:normal;font-display:swap}
@@ -24,16 +24,34 @@
 @keyframes twEmo{0%,7%{opacity:0;transform:scale(.4)}8.5%{opacity:1;transform:scale(1.2)}9.8%,13.4%{opacity:1;transform:scale(1)}14.2%,100%{opacity:0;transform:scale(1)}}
 a{color:#B8326F}
 .see{font-size:14px;font-weight:400;color:#999999;text-decoration:none}
-.hs{scrollbar-width:none}
+.hs,.screen-scroll{scrollbar-width:none}
+.screen-scroll::-webkit-scrollbar{display:none}
 .hs::-webkit-scrollbar{display:none}
 .h2{margin:0;font-size:20px;line-height:30px;font-weight:700;color:#1E1418}
 
 </style>
-<style>html{background:#F4F4F4}body{display:flex;justify-content:center}</style>
+<style>
+html,body{height:100%}
+html{background:#F6EFF2}
+body{display:flex;align-items:center;justify-content:center;overflow:hidden}
+.device{position:relative;padding:12px;border-radius:66px;background:#141414;box-shadow:0 0 0 2px #2E2E2E,0 40px 90px rgba(30,20,24,.22);transform-origin:center}
+.device::before{content:"";position:absolute;left:-4px;top:180px;width:4px;height:64px;border-radius:2px 0 0 2px;background:#2E2E2E;box-shadow:0 84px 0 #2E2E2E}
+.device::after{content:"";position:absolute;right:-4px;top:230px;width:4px;height:100px;border-radius:0 2px 2px 0;background:#2E2E2E}
+.device-screen{width:393px;height:852px;border-radius:54px;overflow:hidden}
+@media (max-width:500px){
+html{background:#FFFFFF}
+.device{padding:0;border-radius:0;background:none;box-shadow:none;transform:none!important}
+.device::before,.device::after{display:none}
+.device-screen{width:100vw;height:100dvh;border-radius:0}
+.device-screen>div{width:100%!important;height:100%!important}
+}
+</style>
 </head>
 <body>
-
-<div lang="ar" dir="rtl" style="width: 393px; height: 2247px; position: relative; overflow: hidden; background: #FFFFFF; color: #1E1418; font-family: 'Thmanyah Sans', system-ui, -apple-system, sans-serif; box-sizing: border-box;">
+<div class="device"><div class="device-screen">
+<div lang="ar" dir="rtl" style="width: 393px; height: 852px; position: relative; overflow: hidden; background: #FFFFFF; color: #1E1418; font-family: 'Thmanyah Sans', system-ui, -apple-system, sans-serif; box-sizing: border-box;">
+<!-- iPhone screen (393x852): the page scrolls inside it while the nav stays put -->
+<div class="screen-scroll" style="height: 100%; overflow-y: auto; overflow-x: hidden;">
 
 <!-- Hero banner (half screen) with status bar + header on top -->
 <section aria-label="عرض لحظات لا تنسى" style="position: relative; height: 381px; overflow: hidden; background: #B7CDFB;">
@@ -58,7 +76,7 @@ a{color:#B8326F}
 <!-- 1. Header: delivery city (right) and logo (left) -->
 <header style="position: relative; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; height: 52px; margin-top: 6px;">
 <button type="button" aria-label="التوصيل إلى الرياض، تغيير المدينة" style="display: flex; flex-direction: column; align-items: flex-start; padding: 0; border: 0; background: transparent; cursor: pointer; font-family: inherit; color: #FFFFFF; text-align: right;">
-<span style="display: flex; align-items: center; gap: 4px; font-size: 13px; line-height: 18px; font-weight: 400;"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 13.43C13.72 13.43 15.12 12.03 15.12 10.31C15.12 8.59 13.72 7.19 12 7.19C10.28 7.19 8.88 8.59 8.88 10.31C8.88 12.03 10.28 13.43 12 13.43Z"/><path d="M3.62 8.49C5.59 -0.17 18.42 -0.16 20.38 8.5C21.53 13.58 18.37 17.88 15.6 20.54C13.59 22.48 10.41 22.48 8.39 20.54C5.63 17.88 2.47 13.57 3.62 8.49Z"/></svg>توصيل إلى</span>
+<span style="display: flex; align-items: center; gap: 4px; font-size: 13px; line-height: 18px; font-weight: 400;">توصيل إلى</span>
 <span style="display: flex; align-items: center; gap: 4px; font-size: 18px; line-height: 26px; font-weight: 600;">الرياض
 <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"><path d="M19.92 8.95L13.4 15.47C12.63 16.24 11.37 16.24 10.6 15.47L4.08 8.95"/></svg>
 </span>
@@ -445,8 +463,9 @@ a{color:#B8326F}
 </section>
 
 </main>
+</div>
 
-<!-- Floating nav -->
+<!-- Floating nav (outside the scroller, so it stays at the bottom of the screen) -->
 <nav aria-label="القائمة الرئيسية" style="position: absolute; left: 16px; right: 16px; bottom: 24px; height: 68px; box-sizing: border-box; padding: 6px; border-radius: 999px; background: #FFFFFF; border: 1px solid #F2F2F2; box-shadow: 0 12px 32px rgba(184,50,111,0.12); display: flex; gap: 2px;">
 <a href="#" aria-current="page" style="flex: 1; border-radius: 999px; background: #FEF0F6; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; color: #B8326F;">
 <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="#E04E94"><path opacity="0.4" d="M20.0402 6.81994L14.2802 2.78994C12.7102 1.68994 10.3002 1.74994 8.79023 2.91994L3.78023 6.82994C2.78023 7.60994 1.99023 9.20994 1.99023 10.4699V17.3699C1.99023 19.9199 4.06023 21.9999 6.61023 21.9999H17.3902C19.9402 21.9999 22.0102 19.9299 22.0102 17.3799V10.5999C22.0102 9.24994 21.1402 7.58994 20.0402 6.81994Z"/><path d="M12 18.75C11.59 18.75 11.25 18.41 11.25 18V15C11.25 14.59 11.59 14.25 12 14.25C12.41 14.25 12.75 14.59 12.75 15V18C12.75 18.41 12.41 18.75 12 18.75Z"/></svg>
@@ -474,6 +493,7 @@ a{color:#B8326F}
 </nav>
 
 </div>
-
+</div></div>
+<script>function fit(){var d=document.querySelector(".device");if(innerWidth<=500){d.style.transform="";return}var s=Math.min(1,(innerHeight-48)/876,(innerWidth-48)/417);d.style.transform="scale("+s+")"}addEventListener("resize",fit);fit()</script>
 </body>
 </html>
