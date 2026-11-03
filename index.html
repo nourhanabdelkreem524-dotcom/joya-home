@@ -9,7 +9,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="JOYA">
 <meta name="theme-color" content="#FFFFFF">
 <script>(function(){var a=matchMedia("(display-mode: standalone)").matches||navigator.standalone===true||/[?&]app=1(&|$)/.test(location.search);if(a)document.documentElement.classList.add("app")})()</script><style>
@@ -66,6 +66,9 @@ html.app .device-screen{width:100vw;height:100vh;height:100dvh;border-radius:0}
 html.app .device-screen>div{width:100%!important;height:100%!important}
 html.app .ios-status{display:none!important}
 html.app nav{bottom:calc(16px + env(safe-area-inset-bottom))!important}
+html.app section>img{top:0!important;-webkit-mask-image:none!important;mask-image:none!important}
+html.app section header{margin-top:calc(env(safe-area-inset-top) + 6px)!important}
+html.app .sticky-head{border-top:env(safe-area-inset-top) solid #F56BAC}
 html.js-head .sticky-head{animation:none!important;visibility:hidden;opacity:0;transform:translateY(-8px);transition:opacity .3s ease,transform .3s ease,visibility 0s linear .3s}
 html.js-head.scrolled .sticky-head{visibility:visible;opacity:1;transform:none;transition:opacity .3s ease,transform .3s ease,visibility 0s}
 </style>
