@@ -4,7 +4,15 @@
 <meta charset="utf-8">
 <title>JOYA Home</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<style>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="JOYA">
+<meta name="theme-color" content="#FFFFFF">
+<script>(function(){var a=matchMedia("(display-mode: standalone)").matches||navigator.standalone===true||/[?&]app=1(&|$)/.test(location.search);if(a)document.documentElement.classList.add("app")})()</script><style>
 @font-face{font-family:'Thmanyah Sans';src:url(assets/thmanyahsans-Regular.woff2) format('woff2');font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:'Thmanyah Sans';src:url(assets/thmanyahsans-Medium.woff2) format('woff2');font-weight:500;font-style:normal;font-display:swap}
 @font-face{font-family:'Thmanyah Sans';src:url(assets/thmanyahsans-Bold.woff2) format('woff2');font-weight:600 700;font-style:normal;font-display:swap}
@@ -45,6 +53,14 @@ html{background:#FFFFFF}
 .device-screen{width:100vw;height:100dvh;border-radius:0}
 .device-screen>div{width:100%!important;height:100%!important}
 }
+html.app,html.app body{background:#FFFFFF}
+html.app body{display:block}
+html.app .device{padding:0;border-radius:0;background:none;box-shadow:none;transform:none!important}
+html.app .device::before,html.app .device::after{display:none}
+html.app .device-screen{width:100vw;height:100vh;height:100dvh;border-radius:0}
+html.app .device-screen>div{width:100%!important;height:100%!important}
+html.app .ios-status{display:none!important}
+html.app nav{bottom:calc(16px + env(safe-area-inset-bottom))!important}
 </style>
 </head>
 <body>
@@ -60,7 +76,7 @@ html{background:#FFFFFF}
 <span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(16,22,48,0.45) 0%, rgba(16,22,48,0.22) 22%, rgba(16,22,48,0) 42%);"></span>
 
 <!-- iOS status bar (iPhone 15/16 Pro, 54pt) + Dynamic Island; always laid out LTR like the system bar -->
-<div aria-hidden="true" dir="ltr" style="position: relative; height: 54px; display: flex; align-items: center; padding-top: 4px; box-sizing: border-box; color: #FFFFFF;">
+<div class="ios-status" aria-hidden="true" dir="ltr" style="position: relative; height: 54px; display: flex; align-items: center; padding-top: 4px; box-sizing: border-box; color: #FFFFFF;">
 <span style="flex: 1; display: flex; justify-content: center; padding-left: 8px;">
 <span style="font-family: -apple-system, 'SF Pro Text', 'SF Pro', system-ui, sans-serif; font-size: 17px; line-height: 22px; font-weight: 600; letter-spacing: -0.4px;">9:41</span>
 </span>
@@ -494,6 +510,7 @@ html{background:#FFFFFF}
 
 </div>
 </div></div>
-<script>function fit(){var d=document.querySelector(".device");if(innerWidth<=500){d.style.transform="";return}var s=Math.min(1,(innerHeight-48)/876,(innerWidth-48)/417);d.style.transform="scale("+s+")"}addEventListener("resize",fit);fit()</script>
+<script>function fit(){var d=document.querySelector(".device");if(innerWidth<=500||document.documentElement.classList.contains("app")){d.style.transform="";return}var s=Math.min(1,(innerHeight-48)/876,(innerWidth-48)/417);d.style.transform="scale("+s+")"}addEventListener("resize",fit);fit()</script>
+<script>if("serviceWorker" in navigator)addEventListener("load",function(){navigator.serviceWorker.register("sw.js")})</script>
 </body>
 </html>
