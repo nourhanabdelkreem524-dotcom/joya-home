@@ -31,7 +31,7 @@
 @keyframes twType{0%{max-width:0;border-color:#F56BAC}6.5%{max-width:130px;border-color:#F56BAC}7.5%,100%{max-width:130px;border-color:transparent}}
 @keyframes twEmo{0%,7%{opacity:0;transform:scale(.4)}8.5%{opacity:1;transform:scale(1.2)}9.8%,13.4%{opacity:1;transform:scale(1)}14.2%,100%{opacity:0;transform:scale(1)}}
 a{color:#B8326F}
-.see{font-size:14px;font-weight:400;color:#999999;text-decoration:none}
+.see{font-size:12px;font-weight:400;color:#999999;text-decoration:none}
 .hs,.screen-scroll{scrollbar-width:none}
 .screen-scroll::-webkit-scrollbar{display:none}
 .page{timeline-scope:--page}
@@ -45,10 +45,10 @@ a{color:#B8326F}
 .pd-chip{flex:0 0 auto;height:44px;padding:0 14px 0 16px;border-radius:999px;border:1.5px solid #F2F2F2;background:#FFFFFF;font:inherit;font-size:14px;font-weight:500;color:#1E1418;display:inline-flex;align-items:center;gap:6px;cursor:pointer;box-sizing:border-box;white-space:nowrap}
 .pd-chip img{width:18px;height:18px;object-fit:contain}
 .pd-chip small{font-size:13px;font-weight:600;color:#1E1418;display:inline-flex;align-items:center;gap:2px}
-.pd-chip.on{border-color:#F9B5D5;background:#FFF6FA;color:#F56BAC}
-.pd-chip.on small{color:#F56BAC}
+.pd-chip.on{border-color:#F9B5D5;background:#FFF6FA;color:#1E1418}
+.pd-chip.on small{color:#666666}
 .pd-sw{width:36px;height:36px;border-radius:999px;border:0;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center}
-.pd-sw.on{box-shadow:0 0 0 2px #FFFFFF,0 0 0 4px #F56BAC}
+.pd-sw.on{box-shadow:0 0 0 2px #FFFFFF,0 0 0 4px #F9B5D5}
 .pd-label{display:flex;align-items:center;justify-content:space-between;font-size:16px;line-height:24px;font-weight:700;color:#1E1418}
 .pd-req{font-size:12px;line-height:22px;font-weight:500;color:#E53935;background:#FAFAFA;border-radius:999px;padding:0 10px}
 .pd-opt{font-size:12px;line-height:22px;font-weight:500;color:#666666;background:#FAFAFA;border-radius:999px;padding:0 10px}
@@ -140,7 +140,7 @@ html.js-head.scrolled .sticky-head{visibility:visible;opacity:1;transform:none;t
 </div>
 <div style="display: flex; flex-direction: column; gap: 8px;">
 <span class="pd-label"><span>صورة على الكرت</span><span class="pd-opt">اختياري</span></span>
-<div style="display: flex; align-items: center; gap: 12px; padding: 12px; border: 1.5px solid #F2F2F2; border-radius: 12px;"><img src="assets/jp-5.jpg" alt="الصورة المرفوعة" style="width: 56px; height: 56px; border-radius: 10px; object-fit: cover;"><span style="flex: 1; display: flex; flex-direction: column;"><b dir="ltr" style="font-size: 14px; line-height: 21px; font-weight: 500; text-align: right;">family-photo.jpg</b><span style="display: flex; align-items: center; gap: 4px; font-size: 12px; line-height: 18px; color: #67BC00;"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"/><path d="M7.75 12L10.58 14.83L16.25 9.17"/></svg>تم الرفع · 1.2 ميجا</span></span><a href="product-custom-uploading.html" data-keep-app style="font-size: 13px; font-weight: 600; color: #1E1418; text-decoration: none;">تغيير</a><a href="product-custom.html" data-keep-app aria-label="حذف الصورة" style="color: #E53935;"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 5.98C17.67 5.65 14.32 5.48 10.98 5.48C9 5.48 7.02 5.58 5.04 5.78L3 5.98"/><path d="M8.5 4.97L8.72 3.66C8.88 2.71 9 2 10.69 2H13.31C15 2 15.13 2.75 15.28 3.67L15.5 4.97"/><path d="M18.85 9.14L18.2 19.21C18.09 20.78 18 22 15.21 22H8.79C6 22 5.91 20.78 5.8 19.21L5.15 9.14"/></svg></a></div>
+<div style="display: flex; align-items: center; gap: 12px; padding: 12px; border: 1.5px solid #F2F2F2; border-radius: 12px;"><img src="assets/jp-5.jpg" alt="الصورة المرفوعة" style="width: 56px; height: 56px; border-radius: 10px; object-fit: cover;"><span style="flex: 1; display: flex; flex-direction: column;"><b dir="ltr" style="font-size: 14px; line-height: 21px; font-weight: 500; text-align: right;">family-photo.jpg</b><span style="font-size: 12px; line-height: 18px; color: #999999;">1.2 ميجا</span></span><a href="product-custom.html" data-keep-app aria-label="حذف الصورة" style="color: #999999; display: flex;"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7L17 17"/></svg></a></div>
 </div>
 </div>
 <section aria-label="تفاصيل المنتج" style="margin: 0 20px; padding: 18px; border: 1px solid #F2F2F2; border-radius: 16px; display: flex; flex-direction: column; gap: 10px;">

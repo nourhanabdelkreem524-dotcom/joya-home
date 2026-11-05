@@ -31,7 +31,7 @@
 @keyframes twType{0%{max-width:0;border-color:#F56BAC}6.5%{max-width:130px;border-color:#F56BAC}7.5%,100%{max-width:130px;border-color:transparent}}
 @keyframes twEmo{0%,7%{opacity:0;transform:scale(.4)}8.5%{opacity:1;transform:scale(1.2)}9.8%,13.4%{opacity:1;transform:scale(1)}14.2%,100%{opacity:0;transform:scale(1)}}
 a{color:#B8326F}
-.see{font-size:14px;font-weight:400;color:#999999;text-decoration:none}
+.see{font-size:12px;font-weight:400;color:#999999;text-decoration:none}
 .hs,.screen-scroll{scrollbar-width:none}
 .screen-scroll::-webkit-scrollbar{display:none}
 .page{timeline-scope:--page}
@@ -45,10 +45,10 @@ a{color:#B8326F}
 .pd-chip{flex:0 0 auto;height:44px;padding:0 14px 0 16px;border-radius:999px;border:1.5px solid #F2F2F2;background:#FFFFFF;font:inherit;font-size:14px;font-weight:500;color:#1E1418;display:inline-flex;align-items:center;gap:6px;cursor:pointer;box-sizing:border-box;white-space:nowrap}
 .pd-chip img{width:18px;height:18px;object-fit:contain}
 .pd-chip small{font-size:13px;font-weight:600;color:#1E1418;display:inline-flex;align-items:center;gap:2px}
-.pd-chip.on{border-color:#F9B5D5;background:#FFF6FA;color:#F56BAC}
-.pd-chip.on small{color:#F56BAC}
+.pd-chip.on{border-color:#F9B5D5;background:#FFF6FA;color:#1E1418}
+.pd-chip.on small{color:#666666}
 .pd-sw{width:36px;height:36px;border-radius:999px;border:0;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center}
-.pd-sw.on{box-shadow:0 0 0 2px #FFFFFF,0 0 0 4px #F56BAC}
+.pd-sw.on{box-shadow:0 0 0 2px #FFFFFF,0 0 0 4px #F9B5D5}
 .pd-label{display:flex;align-items:center;justify-content:space-between;font-size:16px;line-height:24px;font-weight:700;color:#1E1418}
 .pd-req{font-size:12px;line-height:22px;font-weight:500;color:#E53935;background:#FAFAFA;border-radius:999px;padding:0 10px}
 .pd-opt{font-size:12px;line-height:22px;font-weight:500;color:#666666;background:#FAFAFA;border-radius:999px;padding:0 10px}
@@ -98,11 +98,11 @@ html.js-head.scrolled .sticky-head{visibility:visible;opacity:1;transform:none;t
 <div style="position: absolute; inset: 0; display: flex; flex-direction: column;">
 <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 60px 28px 0; text-align: center;">
 <span style="width: 104px; height: 104px; border-radius: 999px; background: #FDECEC; color: #E53935; display: flex; align-items: center; justify-content: center;"><svg aria-hidden="true" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7L17 17"/></svg></span>
-<b style="font-size: 22px; line-height: 32px;">ما تم الدفع</b>
-<span style="font-size: 14px; line-height: 23px; color: #666666;">البنك رفض العملية، وما انخصم منك أي مبلغ. سلتك وكود الخصم محفوظين.</span>
-<div style="display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; border-radius: 12px; background: #FAFAFA; color: #666666; font-size: 13px; line-height: 20px;"><span style="flex: 0 0 auto; display: flex;"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22Z"/><path d="M12 8V13"/><path d="M11.99 16H12"/></svg></span><span style="flex: 1;">السبب: الرصيد غير كافي. جرّب بطاقة ثانية أو طريقة دفع ثانية.</span></div>
+<b style="font-size: 22px; line-height: 32px;">حصل خطأ</b>
+<span style="font-size: 14px; line-height: 23px; color: #666666;">حاول مرة ثانية.</span>
+
 </div>
-<div style="display: flex; flex-direction: column; gap: 10px; padding: 16px 20px 34px;"><a href="checkout-processing.html" data-keep-app class="pd-btn" style="flex: 0 0 auto; border: 0; background: #F56BAC; color: #FFFFFF;">حاول مرة ثانية</a><a href="checkout-payment.html" data-keep-app class="pd-btn" style="flex: 0 0 auto; border: 0; background: #F5F5F5; color: #1E1418;">غيّر طريقة الدفع</a></div>
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 16px 20px 34px;"><a href="checkout.html" data-keep-app class="pd-btn" style="flex: 0 0 auto; border: 0; background: #F56BAC; color: #FFFFFF;">حاول مرة ثانية</a></div>
 </div>
 <div class="ios-status" aria-hidden="true" dir="ltr" style="position: relative; height: 54px; display: flex; align-items: center; padding-top: 4px; box-sizing: border-box; color: #1E1418;">
 <span style="flex: 1; display: flex; justify-content: center; padding-left: 8px;">

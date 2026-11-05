@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>JOYA — إنشاء حساب</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="JOYA">
+<meta name="theme-color" content="#FFFFFF">
+<script>(function(){var a=matchMedia("(display-mode: standalone)").matches||navigator.standalone===true||/[?&]app=1(&|$)/.test(location.search);if(a)document.documentElement.classList.add("app")})()</script><style>
+@font-face{font-family:'Thmanyah Sans';src:url(assets/thmanyahsans-Regular.woff2) format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Thmanyah Sans';src:url(assets/thmanyahsans-Medium.woff2) format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Thmanyah Sans';src:url(assets/thmanyahsans-Bold.woff2) format('woff2');font-weight:600 700;font-style:normal;font-display:swap}
+@font-face{font-family:'Thmanyah Serif Display';src:url(assets/thmanyahserifdisplay-Light.woff2) format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Thmanyah Serif Display';src:url(assets/thmanyahserifdisplay-Regular.woff2) format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Thmanyah Serif Display';src:url(assets/thmanyahserifdisplay-Medium.woff2) format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Thmanyah Serif Display';src:url(assets/thmanyahserifdisplay-Bold.woff2) format('woff2');font-weight:600 700;font-style:normal;font-display:swap}
+@font-face{font-family:'Thmanyah Serif Display';src:url(assets/thmanyahserifdisplay-Black.woff2) format('woff2');font-weight:800 900;font-style:normal;font-display:swap}
+.serif{font-family:'Thmanyah Serif Display',serif}body{margin:0}
+.val-bg{background:linear-gradient(180deg,rgba(254,240,240,.8) 0,rgba(254,240,240,0) 160px),url(assets/val-frame.png) center top/cover no-repeat #FEF0F0}
+.tw{position:relative;display:inline-block;width:160px;height:20px}
+.tw-item{position:absolute;top:0;right:0;display:flex;align-items:center;gap:4px;height:20px;opacity:0;animation:twShow 14s infinite;animation-delay:var(--d)}
+.tw-text{display:inline-block;overflow:hidden;white-space:nowrap;max-width:0;border-left:1.5px solid #F56BAC;animation:twType 14s infinite;animation-delay:var(--d)}
+.tw-emo{display:inline-block;font-size:14px;line-height:20px;opacity:0;transform:scale(.4);animation:twEmo 14s infinite;animation-delay:var(--d)}
+@keyframes twShow{0%,13.4%{opacity:1}14.2%,100%{opacity:0}}
+@keyframes twType{0%{max-width:0;border-color:#F56BAC}6.5%{max-width:130px;border-color:#F56BAC}7.5%,100%{max-width:130px;border-color:transparent}}
+@keyframes twEmo{0%,7%{opacity:0;transform:scale(.4)}8.5%{opacity:1;transform:scale(1.2)}9.8%,13.4%{opacity:1;transform:scale(1)}14.2%,100%{opacity:0;transform:scale(1)}}
+a{color:#B8326F}
+.see{font-size:12px;font-weight:400;color:#999999;text-decoration:none}
+.hs,.screen-scroll{scrollbar-width:none}
+.screen-scroll::-webkit-scrollbar{display:none}
+.page{timeline-scope:--page}
+.screen-scroll{scroll-timeline:--page block}
+.sticky-head{visibility:hidden;opacity:0}
+@supports (animation-timeline: scroll()){.sticky-head{animation:headIn linear both;animation-timeline:--page;animation-range:0px 24px}}
+@keyframes headIn{from{visibility:hidden;opacity:0;transform:translateY(-8px)}to{visibility:visible;opacity:1;transform:none}}
+.hs::-webkit-scrollbar{display:none}
+.h2{margin:0;font-size:20px;line-height:30px;font-weight:700;color:#1E1418}
+
+.pd-chip{flex:0 0 auto;height:44px;padding:0 14px 0 16px;border-radius:999px;border:1.5px solid #F2F2F2;background:#FFFFFF;font:inherit;font-size:14px;font-weight:500;color:#1E1418;display:inline-flex;align-items:center;gap:6px;cursor:pointer;box-sizing:border-box;white-space:nowrap}
+.pd-chip img{width:18px;height:18px;object-fit:contain}
+.pd-chip small{font-size:13px;font-weight:600;color:#1E1418;display:inline-flex;align-items:center;gap:2px}
+.pd-chip.on{border-color:#F9B5D5;background:#FFF6FA;color:#1E1418}
+.pd-chip.on small{color:#666666}
+.pd-sw{width:36px;height:36px;border-radius:999px;border:0;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.pd-sw.on{box-shadow:0 0 0 2px #FFFFFF,0 0 0 4px #F9B5D5}
+.pd-label{display:flex;align-items:center;justify-content:space-between;font-size:16px;line-height:24px;font-weight:700;color:#1E1418}
+.pd-req{font-size:12px;line-height:22px;font-weight:500;color:#E53935;background:#FAFAFA;border-radius:999px;padding:0 10px}
+.pd-opt{font-size:12px;line-height:22px;font-weight:500;color:#666666;background:#FAFAFA;border-radius:999px;padding:0 10px}
+.pd-ibtn{width:40px;height:40px;border-radius:999px;border:1px solid rgba(255,255,255,0.35);background:rgba(255,255,255,0.22);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;color:#FFFFFF;cursor:pointer;box-sizing:border-box}
+.pd-obtn{width:40px;height:40px;border-radius:999px;border:1px solid #F2F2F2;background:#FFFFFF;display:flex;align-items:center;justify-content:center;color:#1E1418;cursor:pointer;box-sizing:border-box}
+.pd-btn{flex:1;height:52px;border-radius:999px;font:inherit;font-size:16px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;box-sizing:border-box}
+a.pd-btn,a.pd-chip{text-decoration:none}
+.pd-step{width:36px;height:36px;border-radius:999px;border:0;background:#FFFFFF;display:flex;align-items:center;justify-content:center;color:#1E1418;cursor:pointer}
+.pd-gal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;height:100%}
+.pd-gal::-webkit-scrollbar{display:none}
+.pd-gal>a{flex:0 0 100%;scroll-snap-align:center;height:100%;display:block}
+.pd-input{width:100%;box-sizing:border-box;border:1.5px solid #F2F2F2;border-radius:12px;padding:12px 14px;font:inherit;font-size:14px;line-height:22px;color:#1E1418;background:#FFFFFF;resize:none}</style>
+<style>
+html,body{height:100%}
+html{background:#F6EFF2}
+body{display:flex;align-items:center;justify-content:center;overflow:hidden}
+.device{position:relative;padding:12px;border-radius:66px;background:#141414;box-shadow:0 0 0 2px #2E2E2E,0 40px 90px rgba(30,20,24,.22);transform-origin:center}
+.device::before{content:"";position:absolute;left:-4px;top:180px;width:4px;height:64px;border-radius:2px 0 0 2px;background:#2E2E2E;box-shadow:0 84px 0 #2E2E2E}
+.device::after{content:"";position:absolute;right:-4px;top:230px;width:4px;height:100px;border-radius:0 2px 2px 0;background:#2E2E2E}
+.device-screen{width:393px;height:852px;border-radius:54px;overflow:hidden}
+@media (max-width:500px){
+html{background:#FFFFFF}
+.device{padding:0;border-radius:0;background:none;box-shadow:none;transform:none!important}
+.device::before,.device::after{display:none}
+.device-screen{width:100vw;height:100dvh;border-radius:0}
+.device-screen>div{width:100%!important;height:100%!important}
+}
+html.app,html.app body{background:#FFFFFF}
+html.app body{display:block}
+html.app .device{padding:0;border-radius:0;background:none;box-shadow:none;transform:none!important}
+html.app .device::before,html.app .device::after{display:none}
+html.app .device-screen{width:100vw;height:100vh;height:100dvh;border-radius:0}
+html.app .device-screen>div{width:100%!important;height:100%!important}
+html.app .ios-status{display:none!important}
+html.app nav{bottom:calc(16px + env(safe-area-inset-bottom))!important}
+html.app section>img{top:0!important;-webkit-mask-image:none!important;mask-image:none!important}
+html.app section header{margin-top:calc(env(safe-area-inset-top) + 6px)!important}
+html.app .sticky-head{border-top:env(safe-area-inset-top) solid #F56BAC}
+html.app .pd-top{padding-top:calc(env(safe-area-inset-top) + 6px)!important}
+html.js-head .sticky-head{animation:none!important;visibility:hidden;opacity:0;transform:translateY(-8px);transition:opacity .3s ease,transform .3s ease,visibility 0s linear .3s}
+html.js-head.scrolled .sticky-head{visibility:visible;opacity:1;transform:none;transition:opacity .3s ease,transform .3s ease,visibility 0s}
+</style>
+</head>
+<body>
+<div class="device"><div class="device-screen">
+<div lang="ar" dir="rtl" class="page" style="width: 393px; height: 852px; position: relative; overflow: hidden; background: #FFFFFF; color: #1E1418; font-family: 'Thmanyah Sans', system-ui, -apple-system, sans-serif; box-sizing: border-box;">
+<div class="screen-scroll" style="height: 100%; overflow-y: auto; overflow-x: hidden;"><div style="padding: 128px 20px 150px; display: flex; flex-direction: column; gap: 20px;"><div style="display: flex; flex-direction: column; gap: 4px;"><b style="font-size: 22px; line-height: 32px; font-weight: 700;">أنشئ حسابك</b><span style="font-size: 14px; line-height: 22px; color: #666666;">سجّل مرة وحدة، وتابع طلباتك وهداياك ونقاطك من مكان واحد.</span></div>
+<div style="display: flex; flex-direction: column; gap: 14px;"><div style="display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 13px; font-weight: 600;">الاسم</span><div style="height: 50px; box-sizing: border-box; display: flex; align-items: center; gap: 10px; padding: 0 14px; border: 1.5px solid #F2F2F2; border-radius: 12px; "><span style="color: #999999; display: flex;"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12C14.76 12 17 9.76 17 7C17 4.24 14.76 2 12 2C9.24 2 7 4.24 7 7C7 9.76 9.24 12 12 12Z"/><path d="M20.59 22C20.59 18.13 16.74 15 12 15C7.26 15 3.41 18.13 3.41 22"/></svg></span><span style="flex: 1; font-size: 14px; color: #1E1418; text-align: right;">عبدالله</span></div></div><div style="display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 13px; font-weight: 600;">رقم الجوال</span><div dir="ltr" style="height: 50px; box-sizing: border-box; display: flex; align-items: center; border: 1.5px solid #F2F2F2; border-radius: 12px; "><span style="flex: 0 0 auto; height: 100%; display: flex; align-items: center; gap: 4px; padding: 0 12px 0 14px; border-right: 1.5px solid #F2F2F2; font-size: 14px; font-weight: 600;">+966<span style="color: #999999; display: flex;"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19.92 8.95L13.4 15.47C12.63 16.24 11.37 16.24 10.6 15.47L4.08 8.95"/></svg></span></span><span style="flex: 1; padding: 0 14px; font-size: 14px; letter-spacing: 0.3px; color: #1E1418;">50 123 4567</span></div><span style="font-size: 12px; line-height: 18px; color: #999999;">رمز الدولة هنا لجوالك بس، وما يغيّر دولة التسوق.</span></div><div style="display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 13px; font-weight: 600;">كلمة المرور</span><div style="height: 50px; box-sizing: border-box; display: flex; align-items: center; gap: 10px; padding: 0 14px; border: 1.5px solid #F2F2F2; border-radius: 12px; "><span style="color: #999999; display: flex;"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10V8C6 4.69 7 2 12 2C17 2 18 4.69 18 8V10"/><path d="M17 22H7C3 22 2 21 2 17V15C2 11 3 10 7 10H17C21 10 22 11 22 15V17C22 21 21 22 17 22Z"/></svg></span><span dir="ltr" style="flex: 1; letter-spacing: 3px; font-size: 20px; line-height: 1; text-align: right;">•••••••••</span><button type="button" aria-label="إظهار كلمة المرور" style="border: 0; background: none; padding: 0; color: #999999; display: flex; cursor: pointer;"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.53 9.47L9.47 14.53C8.82 13.88 8.42 12.99 8.42 12C8.42 10.02 10.02 8.42 12 8.42C12.99 8.42 13.88 8.82 14.53 9.47Z"/><path d="M17.82 5.77C16.07 4.45 14.07 3.73 12 3.73C8.47 3.73 5.18 5.81 2.89 9.41C1.99 10.82 1.99 13.19 2.89 14.6C3.68 15.84 4.6 16.91 5.6 17.77"/><path d="M8.42 19.53C9.56 20.01 10.77 20.27 12 20.27C15.53 20.27 18.82 18.19 21.11 14.59C22.01 13.18 22.01 10.81 21.11 9.4C20.78 8.88 20.42 8.39 20.05 7.93"/><path d="M15.51 12.7C15.25 14.11 14.1 15.26 12.69 15.52"/><path d="M9.47 14.53L2 22"/><path d="M22 2L14.53 9.47"/></svg></button></div><div style="display: flex; align-items: center; gap: 10px;"><div style="flex: 1; display: flex; gap: 4px;"><span style="flex: 1; height: 4px; border-radius: 999px; background: #67BC00;"></span><span style="flex: 1; height: 4px; border-radius: 999px; background: #67BC00;"></span><span style="flex: 1; height: 4px; border-radius: 999px; background: #67BC00;"></span><span style="flex: 1; height: 4px; border-radius: 999px; background: #67BC00;"></span></div><span style="font-size: 12px; font-weight: 600; color: #67BC00;">قوة كلمة المرور: قوية</span></div></div><div style="display: flex; flex-direction: column; gap: 6px;"><span style="font-size: 13px; font-weight: 600;">تأكيد كلمة المرور</span><div style="height: 50px; box-sizing: border-box; display: flex; align-items: center; gap: 10px; padding: 0 14px; border: 1.5px solid #F2F2F2; border-radius: 12px; "><span style="color: #999999; display: flex;"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10V8C6 4.69 7 2 12 2C17 2 18 4.69 18 8V10"/><path d="M17 22H7C3 22 2 21 2 17V15C2 11 3 10 7 10H17C21 10 22 11 22 15V17C22 21 21 22 17 22Z"/></svg></span><span dir="ltr" style="flex: 1; letter-spacing: 3px; font-size: 20px; line-height: 1; text-align: right;">•••••••••</span><button type="button" aria-label="إظهار كلمة المرور" style="border: 0; background: none; padding: 0; color: #999999; display: flex; cursor: pointer;"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.53 9.47L9.47 14.53C8.82 13.88 8.42 12.99 8.42 12C8.42 10.02 10.02 8.42 12 8.42C12.99 8.42 13.88 8.82 14.53 9.47Z"/><path d="M17.82 5.77C16.07 4.45 14.07 3.73 12 3.73C8.47 3.73 5.18 5.81 2.89 9.41C1.99 10.82 1.99 13.19 2.89 14.6C3.68 15.84 4.6 16.91 5.6 17.77"/><path d="M8.42 19.53C9.56 20.01 10.77 20.27 12 20.27C15.53 20.27 18.82 18.19 21.11 14.59C22.01 13.18 22.01 10.81 21.11 9.4C20.78 8.88 20.42 8.39 20.05 7.93"/><path d="M15.51 12.7C15.25 14.11 14.1 15.26 12.69 15.52"/><path d="M9.47 14.53L2 22"/><path d="M22 2L14.53 9.47"/></svg></button></div></div></div>
+<div style="display: flex; align-items: flex-start; gap: 10px; font-size: 13px; line-height: 22px; color: #666666;"><span role="checkbox" aria-checked="true" style="flex: 0 0 auto; width: 22px; height: 22px; border-radius: 7px; background: #F56BAC; color: #FFFFFF; display: flex; align-items: center; justify-content: center;"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.75 12L10.58 14.83L16.25 9.17"/></svg></span><span>قريت وأوافق على <a href="legal.html" data-keep-app style="color: #F56BAC; font-weight: 700; text-decoration: none;">الشروط والأحكام</a> و<a href="legal.html" data-keep-app style="color: #F56BAC; font-weight: 700; text-decoration: none;">سياسة الخصوصية</a></span></div></div></div>
+<div style="position: absolute; top: 0; left: 0; right: 0; z-index: 3; background: #FFFFFF; box-shadow: 0 1px 0 #F2F2F2; padding-bottom: 8px;">
+<div class="ios-status" aria-hidden="true" dir="ltr" style="position: relative; height: 54px; display: flex; align-items: center; padding-top: 4px; box-sizing: border-box; color: #1E1418;">
+<span style="flex: 1; display: flex; justify-content: center; padding-left: 8px;">
+<span style="font-family: -apple-system, 'SF Pro Text', 'SF Pro', system-ui, sans-serif; font-size: 17px; line-height: 22px; font-weight: 600; letter-spacing: -0.4px;">9:41</span>
+</span>
+<span style="flex: 0 0 125px;"></span>
+<span style="position: absolute; left: 50%; top: 11px; transform: translateX(-50%); width: 125px; height: 37px; border-radius: 999px; background: #000000;"></span>
+<span style="flex: 1; display: flex; justify-content: center; align-items: center; gap: 7px; padding-right: 8px;">
+<svg width="19" height="12" viewBox="0 0 19 12" fill="currentColor"><rect x="0" y="7.5" width="3.2" height="4.5" rx="0.9"/><rect x="4.8" y="5.2" width="3.2" height="6.8" rx="0.9"/><rect x="9.6" y="2.6" width="3.2" height="9.4" rx="0.9"/><rect x="14.4" y="0" width="3.2" height="12" rx="0.9"/></svg>
+<svg width="17" height="12.5" viewBox="0 0 17.2 12.2" fill="currentColor"><path d="M8.5713 2.46628C11.0584 2.46639 13.4504 3.38847 15.2529 5.04195C15.3887 5.1696 15.6056 5.16799 15.7393 5.03834L17.0368 3.77487C17.1045 3.70911 17.1422 3.62004 17.1417 3.52735C17.1411 3.43467 17.1023 3.34603 17.0338 3.28104C12.3028 -1.09368 4.83907 -1.09368 0.108056 3.28104C0.039524 3.34598 0.000639766 3.4346 7.82398e-06 3.52728C-0.000624118 3.61996 0.0370483 3.70906 0.104689 3.77487L1.40255 5.03834C1.53615 5.16819 1.75327 5.1698 1.88893 5.04195C3.69167 3.38836 6.08395 2.46628 8.5713 2.46628Z"/><path d="M8.5713 6.68255C9.93685 6.68247 11.2538 7.18922 12.2659 8.10439C12.4028 8.23428 12.6185 8.23146 12.7519 8.09802L14.0479 6.79339C14.1162 6.72495 14.1541 6.6321 14.1531 6.53564C14.1522 6.43917 14.1124 6.34711 14.0428 6.28004C10.9587 3.40009 6.18656 3.40009 3.10251 6.28004C3.03285 6.34711 2.99308 6.43922 2.99224 6.53572C2.9914 6.63221 3.02955 6.72504 3.09798 6.79339L4.39363 8.09802C4.52713 8.23146 4.74275 8.23428 4.87965 8.10439C5.89108 7.18983 7.20702 6.68314 8.5713 6.68255Z"/><path d="M11.1078 9.53817C11.1098 9.63487 11.0716 9.72807 11.0021 9.79574L8.76061 12.0559C8.69491 12.1223 8.6053 12.1597 8.51182 12.1597C8.41835 12.1597 8.32873 12.1223 8.26304 12.0559L6.02125 9.79574C5.95182 9.72802 5.91369 9.63479 5.91588 9.53809C5.91808 9.44139 5.96043 9.34997 6.03294 9.28541C7.46436 8.07487 9.55928 8.07487 10.9907 9.28541C11.0632 9.35002 11.1055 9.44148 11.1078 9.53817Z"/></svg>
+<svg width="27.3" height="13" viewBox="0 0 27.3 13" fill="none"><rect x="0.5" y="0.5" width="24" height="12" rx="3.8" stroke="currentColor" stroke-opacity="0.35"/><rect x="2" y="2" width="21" height="9" rx="2.5" fill="currentColor"/><path d="M26 4.5V8.5C26.8 8.16 27.3 7.37 27.3 6.5C27.3 5.63 26.8 4.84 26 4.5Z" fill="currentColor" fill-opacity="0.4"/></svg>
+</span>
+</div>
+<div style="display: flex; align-items: center; gap: 10px; padding: 6px 20px 0; min-height: 40px;"><a href="account-guest.html" data-keep-app aria-label="رجوع" class="pd-obtn"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.43 5.93L20.5 12L14.43 18.07"/><path d="M3.5 12H20.33"/></svg></a><div style="flex: 1; display: flex; flex-direction: column;"><h1 style="margin: 0; font-size: 18px; line-height: 26px; font-weight: 700;">إنشاء حساب</h1></div></div>
+</div>
+<div style="position: absolute; z-index: 4; left: 0; right: 0; bottom: 0; padding: 12px 20px 30px; background: #FFFFFF; border-top: 1px solid #F2F2F2; display: flex; flex-direction: column; gap: 10px;"><a href="auth-otp.html" data-keep-app class="pd-btn" style="flex: 0 0 auto; border: 0; background: #F56BAC; color: #FFFFFF; ">إنشاء حساب</a><div style="display: flex; align-items: center; justify-content: center; gap: 4px; font-size: 13px; line-height: 20px; color: #666666;">عندك حساب؟<a href="auth-login.html" data-keep-app style="color: #F56BAC; font-weight: 700; text-decoration: none;">سجّل دخولك</a><span aria-hidden="true" style="width: 1px; height: 14px; background: #E6E6E6; margin: 0 8px;"></span><a href="./" data-keep-app style="color: #1E1418; font-weight: 600; text-decoration: none;">تصفّح كضيف</a></div></div>
+</div>
+</div></div>
+<script>function fit(){var d=document.querySelector(".device");if(innerWidth<=500||document.documentElement.classList.contains("app")){d.style.transform="";return}var s=Math.min(1,(innerHeight-48)/876,(innerWidth-48)/417);d.style.transform="scale("+s+")"}addEventListener("resize",fit);fit()</script>
+<script>(function(){var d=document.documentElement,s=document.querySelector(".screen-scroll");d.classList.add("js-head");s.addEventListener("scroll",function(){d.classList.toggle("scrolled",s.scrollTop>4)},{passive:true})})()</script>
+<script>if(document.documentElement.classList.contains("app"))document.querySelectorAll("a[data-keep-app]").forEach(function(a){a.setAttribute("href",a.getAttribute("href")+"?app=1")})</script>
+<script>if("serviceWorker" in navigator)addEventListener("load",function(){navigator.serviceWorker.register("sw.js")})</script>
+</body>
+</html>
